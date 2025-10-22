@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Welcome Page
+    </title>
+  </head>
+</html>
+  <body>
+    <h1>{{message}}</h1>
+    <p>Do you want to add details of the devices you want to track, or exit?</p>
+    <form action="/add_device" method="POST">
+      <input type="submit" name="welcome_option" value="Add device">
+    </form>
+    <form action="/exit" method="POST">
+      <input type="submit" name="welcome_option" value="EXIT">
+    </form>
+  </body>
+</html>

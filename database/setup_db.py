@@ -5,7 +5,9 @@ c = conn.cursor()
 
 c.execute('''
 CREATE TABLE IF NOT EXISTS onboarding (
-contact_number TEXT PRIMARY KEY,
+userid number AUTOINCREMENT PRIMARY KEY,
+username TEXT,
+contact_number TEXT
 first_name TEXT,
 last_name TEXT,
 state TEXT,
@@ -50,7 +52,7 @@ FOREIGN KEY (contact_number) REFERENCES onboarding(contact_number),
 FOREIGN KEY (device_id) REFERENCES device_details(device_id)
 )
 ''')
-
+                                               
 conn.commit()
 conn.close()
 
