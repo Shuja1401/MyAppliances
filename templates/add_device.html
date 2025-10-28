@@ -9,70 +9,77 @@
 <p><i>A one-stop shop for all the assets in your house.</i></p><br><hr>
 <p>Enter the details of the devices you want to track.</p>
 
-<form method="POST">
-<p>Mobile number:<input type="text" name="contact_number" required></p>
-<p>Device nickname:<input type="text" name="device_nickname" required></p>
-<p>Name your device as you like!<br><i>papa's phone, dolly's car, bedroom air conditioner, kitchen's chimney, ground floor water motor....</i></p>
-<label for="category">Select your device</label>
-<select id="category" name="device_type">
-<option value="">--Select Device--</option>
-<option value="Air Conditioner">Air Conditioner (AC)</option>
-<option value="Blender">Blender</option>
-<option value="Camera">Camera</option>
-<option value="Ceiling Fan">Ceiling Fan</option>
-<option value="Coffee Maker">Coffee Maker</option>
-<option value="Dishwasher">Dishwasher</option>
-<option value="Electric Kettle">Electric Kettle</option>
-<option value="Freezer">Freezer</option>
-<option value="Gas Stove">Gas Stove</option>
-<option value="Hair Dryer">Hair Dryer</option>
-<option value="Iron">Iron</option>
-<option value="Laptop">Laptop</option>
-<option value="Microwave">Microwave</option>
-<option value="Mixer Grinder">Mixer Grinder</option>
-<option value="Mobile Phone">Mobile Phone</option>
-<option value="Refrigerator">Refrigerator</option>
-<option value="Smartwatch">Smartwatch</option>
-<option value="Television">Television</option>
-<option value="Toaster">Toaster</option>
-<option value="Vacuum Cleaner">Vacuum Cleaner</option>
-<option value="Washing Machine">Washing Machine</option>
-<option value="Water Heater">Water Heater</option>
-<option value="Water Purifier">Water Purifier</option>
-<option value="Wi-Fi Router">Wi-Fi Router</option>
-<option value="Yogurt Maker">Yogurt Maker</option>
-</select>
-<p>Enter the name of the manufacturer:<input type="text" name="manufacturer_name" required></p>
-<p>Enter purchase date<input type="text" name="purchase_date" required></p>
-<br><hr>
-
-<h2>Warranty details.</h2>
-<p>Duration of original warranty (in months):<input type="number" name="warranty_duration" required></p>
-<p><i>If warranty period is 6 months, enter 6. If warranty period is one year, enter 12.  If warranty period is two years, enter 24.</i></p>
-<p>Does your item have extended warranty?</p>
-<input type="radio" id="extended_yes" name="extended_warranty_option" value="Yes" required><label for="extended_yes">Yes</label>
-<input type="radio" id="extended_no" name="extended_warranty_option" value="No" required><label for="extended_no">No</label>
-<p>Duration of extended warranty (in months):<input type="number" name="extended_warranty_duration" required></p>
-<p><i>If the extended warranty period is 6 months, enter 6. If the extended warranty period is one year, enter 12. If the extended warranty period is two years, enter 24.</i></p>
-<br><hr>
-
-<h2>Service details</h2>
-<p>Does your device have an active service plan?</p>
-<input type="radio" id="service_plan_yes" name="service_plan_active" value="Yes" required><label for="service_plan_yes">Yes</label>
-<input type="radio" id="service_plan_no" name="service_plan_active" value="No" required><label for="service_plan_no">No</label>
-<p>Is the plan by manufacturer or a third-party?</p>
-<input type="radio" id="service_manufacturer" name="service_plan_by" value="Manufacturer" required><label for="service_manufacturer">Manufacturer</label>
-<input type="radio" id="service_third" name="service_plan_by" value="Third party" required><label for="service_third">Third party</label>
-<p>When is the next service due?</p>
-<p><i> If the next service is due in 6 months, enter 6. If next service is due in one year, enter 12.  If the next service is due in two years, enter 24.</i></p>
-<input type="number" name="service_due_in" required>
-<br><hr>
-
-<h2>Details of service centre</h2>
-<p>Name of service centre (if available):</p> <input type="text" name="service_centre_name">
-<p>Address:</p> <input type="text" name="service_centre_address" required>
-<p>Contact number:</p><input type="text" name="service_centre_number">
-<input type="submit" value="Submit">
+<form method="POST", action="/'add_device'">
+  <input type="hidden" name=deviceid value="{{userid_form}}">
+  <p>Device nickname:<input type="text" name="device_nickname" required></p>
+  <p>Name your device as you like!<br><i>papa's phone, dolly's car, bedroom air conditioner, kitchen's chimney, ground floor water motor....</i></p>
+  <label for="category">Select your device</label>
+  <select id="category" name="device_type">
+  <option value="">--Select Device--</option>
+  <option value="Air Conditioner">Air Conditioner (AC)</option>
+  <option value="Blender">Blender</option>
+  <option value="Camera">Camera</option>
+  <option value="Ceiling Fan">Ceiling Fan</option>
+  <option value="Coffee Maker">Coffee Maker</option>
+  <option value="Dishwasher">Dishwasher</option>
+  <option value="Electric Kettle">Electric Kettle</option>
+  <option value="Freezer">Freezer</option>
+  <option value="Gas Stove">Gas Stove</option>
+  <option value="Hair Dryer">Hair Dryer</option>
+  <option value="Iron">Iron</option>
+  <option value="Laptop">Laptop</option>
+  <option value="Microwave">Microwave</option>
+  <option value="Mixer Grinder">Mixer Grinder</option>
+  <option value="Mobile Phone">Mobile Phone</option>
+  <option value="Refrigerator">Refrigerator</option>
+  <option value="Smartwatch">Smartwatch</option>
+  <option value="Television">Television</option>
+  <option value="Toaster">Toaster</option>
+  <option value="Vacuum Cleaner">Vacuum Cleaner</option>
+  <option value="Washing Machine">Washing Machine</option>
+  <option value="Water Heater">Water Heater</option>
+  <option value="Water Purifier">Water Purifier</option>
+  <option value="Wi-Fi Router">Wi-Fi Router</option>
+  <option value="Yogurt Maker">Yogurt Maker</option>
+  </select>
+  <p>Enter the name of the manufacturer:<input type="text" name="manufacturer_name" required></p>
+  <p>Enter purchase date<input type="text" name="purchase_date" required></p>
+  <br><hr>
+  
+  <h2>Warranty details.</h2>
+  <p>Duration of original warranty (in months):<input type="number" name="warranty_duration" required></p>
+  <p><i>If warranty period is 6 months, enter 6. If warranty period is one year, enter 12.  If warranty period is two years, enter 24.</i></p>
+  <p>Does your item have extended warranty?</p>
+  <input type="radio" id="extended_yes" name="extended_warranty_option" value="Yes" required><label for="extended_yes">Yes</label>
+  <input type="radio" id="extended_no" name="extended_warranty_option" value="No" required><label for="extended_no">No</label>
+  <p>Duration of extended warranty (in months):<input type="number" name="extended_warranty_duration" required></p>
+  <p><i>If the extended warranty period is 6 months, enter 6. If the extended warranty period is one year, enter 12. If the extended warranty period is two years, enter 24.</i></p>
+  <br><hr>
+  
+  <h2>Service details</h2>
+  <p>Does your device have an active service plan?</p>
+  <input type="radio" id="service_plan_yes" name="service_plan_active" value="Yes" required><label for="service_plan_yes">Yes</label>
+  <input type="radio" id="service_plan_no" name="service_plan_active" value="No" required><label for="service_plan_no">No</label>
+  <p>Is the plan by manufacturer or a third-party?</p>
+  <input type="radio" id="service_manufacturer" name="service_plan_by" value="Manufacturer" required><label for="service_manufacturer">Manufacturer</label>
+  <input type="radio" id="service_third" name="service_plan_by" value="Third party" required><label for="service_third">Third party</label>
+  <p>When is the next service due?</p>
+  <p><i> If the next service is due in 6 months, enter 6. If next service is due in one year, enter 12.  If the next service is due in two years, enter 24.</i></p>
+  <input type="number" name="service_due_in" required>
+  <br><hr>
+  
+  <h2>Details of service centre</h2>
+  <p>Name of service centre (if available):</p> <input type="text" name="service_centre_name">
+  <p>Address:</p> <input type="text" name="service_centre_address" required>
+  <p>Contact number:</p><input type="text" name="service_centre_number">
+  <input type="submit" value="Submit">
+</form>
+<form method='POST' action="/add_device">
+  <label id="adddevice">Do you want to add another device?</label>
+    <input type="submit" for="adddevice" name="nav_option" value="ADD AGAIN">
+  <lable id="exit">Do you want to exit?</lable>
+    <input type="submit" for="exit" name="nav_option" value="Exit">
+  </label>
 </form>
 </body>
 </html>

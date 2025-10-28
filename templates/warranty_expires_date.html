@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Service Expiration Details
+    </title>
+  </head>
+  <body>
+    <h3>The warranty of your device, <b>{{device_nickname}}</b>, will expire on {{extended_warranty_expires_date}}</h3>
+
+<form method="POST" action="/navigation">
+  <label>Do you want to go back to the Main Menu?</label>
+  <input type="submit" value="MAIN MENU">
+</form>
+<form method="POST" action="/exit">
+  <label>Do you want to exit?</label>
+  <input type="submit" value="exit">
+</form>
+  </body>
+</html>

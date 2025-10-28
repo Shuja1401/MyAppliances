@@ -1,0 +1,24 @@
+<!DOCTYPE html)
+<html>
+  <head>
+    <title>
+      Service Centre Details
+    </title>
+  </head>
+  <body>
+    <h3>~~~~Service Centre Details~~~</h3>
+    {% for details in service_centre_details %}
+    <p>{{details[0]}}</p>
+    <p>{{details[1]}}</p>
+    {% endfor %}
+    
+    <form method='POST', action=/navigation>
+      <label id="option_main">Do you want to go back to the main menu?</label>
+      <input type=submit for="option_main" value="Main Menu">
+    </form>
+    <form method='POST', action=/exit>
+      <label id=option_exit>Do you want to exit?</label>
+      <input type="submit" for="option_exit" value="Exit">
+    </form>
+  </body>
+</html>

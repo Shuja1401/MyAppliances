@@ -25,18 +25,5 @@
       {% endfor %}
     </tbody>
   </table>
-  <h3>~~~~Select a device~~~~</h3>
-  <form method="POST" action="/select_device">
-    <label for="selecteddevice">Select a device</label>
-      <select id="selecteddevice" name="selected_device" required>
-        <option value="">---Select a device---</option>
-        {% if device_list %}
-        {% for device in device_list %}
-        <option value="{{ device[0] }}">({{ device[1] }}), ({{ device[2] }})</option>
-        {% endfor %}
-        {% endif %}
-      </select>
-    <input type="submit" value="Select a device">
-  </form>
 </body>
 </html>
