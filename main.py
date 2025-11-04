@@ -73,10 +73,9 @@ def onboarding():
             INSERT INTO users (
             username,
             password_hash
-            )
-            VALUES (?, ?)
+            ) VALUES (?, ?)
             """,(request.form['username'], hashed_password))
-            userid_onboarding=c.lastrowid
+            userid_onboarding=c.fetchone()[0]
             c.execute("""
             INSERT INTO onboarding (
                 userid,
