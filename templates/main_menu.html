@@ -19,9 +19,11 @@
 <p>MyAppliances helps you neatly organize and manage the service, repair, and warranty details of every device, gadget, automobile, and of course, appliance in your home.</p>
 
 <p>Just share your device details once, and let <b>MyAppliances</b> handle the rest!</p>
-
+{% if message_exit %}
+  <p>{{message_exit}}</p>
+{% endif %}
 <h3>Existing users</h3>
-<p><a href="{{ url_for('login')}}">Click here to login</a></p>
+<p><a href="{{ url_for('login')}}">Login</a></p>
 <h3>New users</h3>
 <p><a href="{{ url_for('onboarding') }}">Create an account</a></p>
 </body>

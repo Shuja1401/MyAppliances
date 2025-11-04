@@ -1,81 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MyAppliance - Onboarding</title>
+  <title>MyAppliance - Onboarding</title>
 </head>
 <body>
-<h1>Welcome to <b>MyAppliances!</b></h1><br>
-<i>A one-stop shop for all the assets in your house.</i><br><br><hr>
+  <h1>Welcome to <b>MyAppliances!</b></h1><br>
+  <i>A one-stop shop for all the assets in your house.</i><br><br><hr>
+  <p>
+    MyAppliances helps you neatly organize and manage the service, repair, and warranty details of every device, gadget, automobile, and of course, appliance in your home.
+  </p>
 
-<ul>
-  <li>When is your air conditioner due for service?</li>
-  <li>How much have you spent on appliance repairs this year?</li>
-  <li>Who should you call when a gadget breaks down?</li>
-  <li>Is your refrigerator still under warranty?</li>
-</ul><br>
+  <p>
+    Just share your device details once, and let <b>MyAppliances</b> handle the rest!
+  </p>
 
-<p>
-  No more digging through old files, searching messages, or flipping through scribbled notes to find these answers.
-</p>
+  {% if error %}
+    <h2 style="color:red;">{{ error }}</h2>
+  {% endif %}
 
-<p>
-  MyAppliances helps you neatly organize and manage the service, repair, and warranty details of every device, gadget, automobile, and of course, appliance in your home.
-</p>
+  <form method="POST" action="/onboarding">
+    <p>User name: <input type="text" name="username" required></p>
+    <p>Password: <input type="text" name="password" required></p>
+    <p>Mobile number: <input type="text" name="contact_number" required></p>
+    <p>First name: <input type="text" name="first_name" required></p>
+    <p>Last name: <input type="text" name="last_name" required></p>
 
-<p>
-  Just share your device details once, and let <b>MyAppliances</b> handle the rest!
-</p>
-{% if error %}
-  <h2>!!!ERROR!!!!</h2>
-{% endif %}
+    <label for="state">Select your state:</label>
+    <select id="state" name="state" required>
+      <option value="">--Please choose a state--</option>
+      <option value="Andhra Pradesh">Andhra Pradesh</option>
+      <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+      <option value="Assam">Assam</option>
+      <option value="Bihar">Bihar</option>
+      <option value="Chhattisgarh">Chhattisgarh</option>
+      <option value="Goa">Goa</option>
+      <option value="Gujarat">Gujarat</option>
+      <option value="Haryana">Haryana</option>
+      <option value="Himachal Pradesh">Himachal Pradesh</option>
+      <option value="Jharkhand">Jharkhand</option>
+      <option value="Karnataka">Karnataka</option>
+      <option value="Kerala">Kerala</option>
+      <option value="Madhya Pradesh">Madhya Pradesh</option>
+      <option value="Maharashtra">Maharashtra</option>
+      <option value="Manipur">Manipur</option>
+      <option value="Meghalaya">Meghalaya</option>
+      <option value="Mizoram">Mizoram</option>
+      <option value="Nagaland">Nagaland</option>
+      <option value="Odisha">Odisha</option>
+      <option value="Punjab">Punjab</option>
+      <option value="Rajasthan">Rajasthan</option>
+      <option value="Sikkim">Sikkim</option>
+      <option value="Tamil Nadu">Tamil Nadu</option>
+      <option value="Telangana">Telangana</option>
+      <option value="Tripura">Tripura</option>
+      <option value="Uttar Pradesh">Uttar Pradesh</option>
+      <option value="Uttarakhand">Uttarakhand</option>
+      <option value="West Bengal">West Bengal</option>
+      <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+      <option value="Chandigarh">Chandigarh</option>
+      <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+      <option value="Delhi">Delhi</option>
+      <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+      <option value="Ladakh">Ladakh</option>
+      <option value="Lakshadweep">Lakshadweep</option>
+      <option value="Puducherry">Puducherry</option>
+    </select>
 
-<form method="POST">
-<p>Mobile number:<input type="text" name="contact_number" required></p>                              
-<p>First name:<input type="text" name="first_name" required></p>
-<p>Last name:<input type="text" name="last_name" required></p>
-<label for="state">Select your state:</label>
-<select id="state" name="state" required>
-  <option value="">--Please choose a state--</option>
-  <option value="Andhra Pradesh">Andhra Pradesh</option>
-  <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-  <option value="Assam">Assam</option>
-  <option value="Bihar">Bihar</option>
-  <option value="Chhattisgarh">Chhattisgarh</option>
-  <option value="Goa">Goa</option>
-  <option value="Gujarat">Gujarat</option>
-  <option value="Haryana">Haryana</option>
-  <option value="Himachal Pradesh">Himachal Pradesh</option>
-  <option value="Jharkhand">Jharkhand</option>
-  <option value="Karnataka">Karnataka</option>
-  <option value="Kerala">Kerala</option>
-  <option value="Madhya Pradesh">Madhya Pradesh</option>
-  <option value="Maharashtra">Maharashtra</option>
-  <option value="Manipur">Manipur</option>
-  <option value="Meghalaya">Meghalaya</option>
-  <option value="Mizoram">Mizoram</option>
-  <option value="Nagaland">Nagaland</option>
-  <option value="Odisha">Odisha</option>
-  <option value="Punjab">Punjab</option>
-  <option value="Rajasthan">Rajasthan</option>
-  <option value="Sikkim">Sikkim</option>
-  <option value="Tamil Nadu">Tamil Nadu</option>
-  <option value="Telangana">Telangana</option>
-  <option value="Tripura">Tripura</option>
-  <option value="Uttar Pradesh">Uttar Pradesh</option>
-  <option value="Uttarakhand">Uttarakhand</option>
-  <option value="West Bengal">West Bengal</option>
-  <!-- Union Territories -->
-  <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-  <option value="Chandigarh">Chandigarh</option>
-  <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
-  <option value="Delhi">Delhi</option>
-  <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-  <option value="Ladakh">Ladakh</option>
-  <option value="Lakshadweep">Lakshadweep</option>
-  <option value="Puducherry">Puducherry</option>
-</select>
-<p>City:<input name="city" type="text" required></p>
-<p>PIN code:<input=pin_code" type="text" required></p>
-<p>Complete address: <textarea name="complete_address" rows="2" cols="60" placeholder="Enter your complete address." required></textarea></p>
-<button type="submit">Submit</button>
+    <p>City: <input name="city" type="text" required></p>
+    <p>PIN code: <input name="pin_code" type="text" required></p>
+    <p>Complete address:</p>
+    <textarea name="complete_address" rows="2" cols="60" placeholder="Enter your complete address." required></textarea>
+
+    <br><br>
+    <button type="submit">Submit</button>
+  </form>
 </body>
+</html>

@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>My Devices</title>
+  <title>My Devices</title>
 </head>
-
 <body>
-<h3>~~~~List of devices~~~~</h3>
-<p>List of devices registered under {{contact_number}}</p>
+  <h3>~~~~List of devices~~~~</h3>
+  <p>List of devices registered under {{ contact_number }}</p>
+
   <table border="1">
     <thead>
       <tr>
-      <th>Device nickname</th>
-      <th>Device type</th>
-      <th>Manufacturer name</th>
+        <th>Device nickname</th>
+        <th>Device type</th>
+        <th>Manufacturer name</th>
       </tr>
     </thead>
     <tbody>
       {% for device in devices %}
       <tr>
-      <td>{{ device[1] }}</td>
-      <td>{{ device[2] }}</td>
-      <td>{{ device[3] }}</td>
+        <td>{{ device[1] }}</td>
+        <td>{{ device[2] }}</td>
+        <td>{{ device[3] }}</td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
+
   <h3>~~~~Select a device~~~~</h3>
+
   <form method="POST" action="/select_device">
-    <label for="selecteddevice">Select a device</label>
-      <select id="selecteddevice" name="selected_device" required>
-        <option value="">---Select a device---</option>
-        {% if device_list %}
+    <label for="selecteddevice">Select a device:</label>
+    <select id="selecteddevice" name="selected_device" required>
+      <option value="">---Select a device---</option>
+      {% if device_list %}
         {% for device in device_list %}
-        <option value="{{ device[0] }}">({{ device[1] }}), ({{ device[2] }})</option>
+          <option value="{{ device[0] }}">{{ device[1] }} ({{ device[2] }})</option>
         {% endfor %}
-        {% endif %}
-      </select>
-    <input type="submit" value="Select a device">
+      {% else %}
+        <option disabled>No devices available</option>
+      {% endif %}
+    </select>
+    <input type="submit" value="Select">
   </form>
 </body>
 </html>

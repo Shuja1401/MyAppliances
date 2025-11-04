@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>
-  Navigation page
-  </title>
+  <title>Navigation page</title>
 </head>
-  <body>
-  <h3>~~~ MAIN MENU~~~</h3>
-    <form method="POST" action="/navigation">
+<body>
+  <h3>~~~ MAIN MENU ~~~</h3>
+
+  {% if error_msg_navigation %}
+    <p style="color:red;">{{ error_msg_navigation }}</p>
+  {% endif %}
+
+  <form method="POST" action="/navigation">
     <ul>
       <li>1. Device breakdown</li>
-      <li>2. View service details</li>
+      <li>2. Check service-due-on date</li>
       <li>3. View warranty status</li>
-      <li>4. View my devices</li>
-      <li>5. Change device information: Add/delete/edit a device.</li>
+      <li>4. View all my devices</li>
+      <li>5. Edit (add/delete) device information</li>
+      <li>6. Logout</li>
     </ul>
     <input type="number" name="navigation_option" required>
     <input type="submit" value="SUBMIT">
-    </form>
-  </body>
+  </form>
+</body>
 </html>

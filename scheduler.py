@@ -1,11 +1,11 @@
 import sqlite3
 import time
-from main import get_db, close_db
+from db_utils import get_db, close_db
+
 
 def update_due_soon_table():
     """Refresh devices_with_service_due table every 24 hours."""
-    conn = get_db()
-    c = conn.cursor()
+    conn, c = get_db()
 
     # Drop old table if it exists
     c.execute("DROP TABLE IF EXISTS devices_with_service_due;")
