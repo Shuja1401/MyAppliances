@@ -2,16 +2,17 @@
 # Create a footbar for logout and go back to main menu. input type submit
 
 
-from flask import Flask, render_template, request, redirect, url_for, session
-from flask.sessions import NullSession
-from flask_session import Session
-from datetime import datetime, timedelta
-from dateutil.relativedelta import relativedelta
-from werkzeug.security import generate_password_hash, check_password_hash
 import os
 import sqlite3
+from datetime import datetime, timedelta
 
-from db_utils import get_db, close_db
+from dateutil.relativedelta import relativedelta
+from flask import Flask, redirect, render_template, request, session, url_for
+from flask.sessions import NullSession
+from flask_session import Session
+from werkzeug.security import check_password_hash, generate_password_hash
+
+from db_utils import close_db, get_db
 from scheduler import update_due_soon_table
 
 app = Flask(__name__)
@@ -75,7 +76,7 @@ def onboarding():
             password_hash
             ) VALUES (?, ?)
             """,(request.form['username'], hashed_password))
-            userid_onboarding=c.fetchone()[0]
+            userid_onboarding=c.lastrowid
             c.execute("""
             INSERT INTO onboarding (
                 userid,
@@ -175,8 +176,7 @@ def navigation():
             nav_message="Please add a device before proceeding."
             return render_template('add_device.html', nav_message=nav_message)
     else:
-        nav_option=request.form.get('navigation_option')
-        nav_option = int(nav_option)
+        nav_option = int(request.form.get('navigation_option', 0))
         if nav_option==1:
             return redirect('/device_breakdown')
         elif nav_option==2:
@@ -241,7 +241,7 @@ def add_device():
                     request.form.get('service_plan_by'),
                     request.form.get('service_due_in')
             ))
-            deviceid_dev_det=c.fetchone()[0]
+            deviceid_dev_det=c.lastrowid
             c.execute("""
                 INSERT INTO service_centre_details(
                     userid,
@@ -289,16 +289,19 @@ def dev_breakdown():
         ))
         dev_breakdown_details=c.fetchall()
         #Retrieves service centre name & contact number by comparing with device_type & manufacturer name.
-        c.execute(
-        """
-        SELECT
-            company_name,
-            company_contact_no
-            FROM service_centre_details
-            WHERE device_type=? AND manufacturer_name=?
-        """,
-        (dev_breakdown_details[0][0],dev_breakdown_details[0][1])
-    )
+        if dev_breakdown_details:
+            c.execute(
+            """
+            SELECT
+                company_name,
+                company_contact_no
+                FROM service_centre_details
+                WHERE device_type=? AND manufacturer_name=?
+            """,
+            (dev_breakdown_details[0][0],dev_breakdown_details[0][1])
+        )
+        else:
+            c.execute("SELECT NULL, NULL WHERE 1=0")
     service_centre_details_breakdown=c.fetchall()
     return render_template(
         'dev_breakdown_service_centre.html',
@@ -346,7 +349,7 @@ def add_service_details():
             part_warranty_in_months,
             additional_remark
         ))
-        close_db()
+        close_db(conn)
     return render_template('add_service_details.html')
         
 #Warranty expire date
@@ -374,7 +377,8 @@ def display_devices():
     if request.method=='POST':
         conn, c = get_db()
         c.execute("SELECT username FROM onboarding WHERE userid=?", (userid_display,))
-        username_display=c.fetchall()[0]
+        username_result=c.fetchone()
+        username_display = username_result[0] if username_result else None
         c.execute(
         """SELECT
         device_nickname,
