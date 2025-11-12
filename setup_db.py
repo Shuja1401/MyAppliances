@@ -14,7 +14,7 @@ def init_db():
         CREATE TABLE IF NOT EXISTS users (
             userid INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT UNIQUE NOT NULL,
-            password_hash TEXT NOT NULL,
+            password TEXT NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );
         CREATE TABLE IF NOT EXISTS onboarding (
@@ -44,10 +44,13 @@ def init_db():
             service_required_after_months INTEGER,
             last_serviced_on TEXT,
             next_service_due TEXT,
+            warranty_status_check TEXT,
+            service_status_check TEXT,
             FOREIGN KEY (userid) REFERENCES users(userid)
         );
         CREATE TABLE IF NOT EXISTS service_details (
             service_id INTEGER PRIMARY KEY AUTOINCREMENT,
+            userid INTEGER NOT NULL,
             deviceid INTEGER NOT NULL,
             serviced_on TEXT,
             amount_spent REAL,
@@ -60,13 +63,20 @@ def init_db():
             FOREIGN KEY (deviceid) REFERENCES device_details(deviceid)
         );
         CREATE TABLE IF NOT EXISTS service_centre_details (
-            userid INTEGER PRIMARY KEY,
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            userid INTEGER,
             deviceid INTEGER,
             device_type TEXT,
             manufacturer_name TEXT,
             name_service_centre TEXT,
             address_service_centre TEXT,
             contact_no_service_centre TEXT
+        );
+        CREATE TABLE IF NOT EXISTS devices_with_service_due (
+            userid TEXT,
+            username TEXT,
+            deviceid TEXT,
+            device_nickname TEXT
         );
         """)
         print(sql_script)

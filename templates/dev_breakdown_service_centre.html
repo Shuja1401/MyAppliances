@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Service Centre Details</title>
-  </head>
-  <body>
-    <h3>Details of service centre for your {{service_centre_details_breakdown[0][2]}}</h3>
-    <p>Company name: {{service_centre_details_breakdown[0][0]}}</p>
-    <p>Company contact number: {{service_centre_details_breakdown[0][1]}}</p>
-  </body>
+<head>
+  <title>Service Centre Details</title>
+</head>
+<body>
+
+  {% if service_centre_details_breakdown %}
+    <h3>Service centre for your {{ dev_breakdown_details[2] }}</h3>
+    <p><b>Device Type:</b> {{ dev_breakdown_details[0] }}</p>
+    <p><b>Manufacturer:</b> {{ dev_breakdown_details[1] }}</p>
+    <hr>
+    <p><b>Company name:</b> {{ service_centre_details_breakdown[0][0] }}</p>
+    <p><b>Company contact:</b> {{ service_centre_details_breakdown[0][1] }}</p>
+  {% else %}
+    <p>No service centre details found for this device.</p>
+  {% endif %}
+
+  <hr>
+  <p><a href="{{ url_for('navigation') }}">Home</a></p>
+  <p><a href="{{ url_for('exit_user') }}">Logout</a></p>
+
+</body>
 </html>

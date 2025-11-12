@@ -9,6 +9,7 @@ def get_db():
 
     print(f"[DEBUG] Using DB at: {db_path}")  # Optional for checking
     conn = sqlite3.connect(db_path)
+    conn.row_factory = sqlite3.Row
     c = conn.cursor()
     return conn, c
 

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <title>Service details deleted successfully.</title>
+</html>
+<body>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul>
+        {% for category, message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  <p>{{message}}</p>
+  
+  <p><a href="{{url_for('delete_service_details')}}">Delete anoter service detail</a></p>
+  <p><a href="{{url_for('navigation')}}">Home</a></p>
+  <p><a href="{{url_for('exit_user')}}">Logout</a></p>
+</body>

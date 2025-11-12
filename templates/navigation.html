@@ -5,19 +5,43 @@
 </head>
 <body>
   <h3>~~~ MAIN MENU ~~~</h3>
-
+  {% if service_overdue_exists %}
+  <h2>!!!ALERT!!!</h2>
+  <h3>Devices with service overdue.</h3>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Device Nickname</th>
+        <th>Device Type</th>
+        <th>Manufacturer</th>
+        <th>Last Serviced On</th>
+        <th>Next Service Due</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for device in service_overdue_exists %}
+      <tr>
+        <td>{{ device[0] }}</td>
+        <td>{{ device[1] }}</td>
+        <td>{{ device[2] }}</td>
+        <td>{{ device[3] }}</td>
+        <td>{{ device[4] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
   {% if error_msg_navigation %}
     <p style="color:red;">{{ error_msg_navigation }}</p>
   {% endif %}
-
+  <h3>Select an option to continue...</h3>
   <form method="POST" action="/navigation">
     <ul>
       <li>1. Device breakdown</li>
-      <li>2. Check service-due-on date</li>
-      <li>3. View warranty status</li>
-      <li>4. View all my devices</li>
-      <li>5. Edit (add/delete) device information</li>
-      <li>6. Logout</li>
+      <li>2. Check service/warranty status</li>
+      <li>3. Service details (add/delete/view)</li>
+      <li>4. Device details (add/delete/view)</li>
+      <li>5. Logout</li>
     </ul>
     <input type="number" name="navigation_option" required>
     <input type="submit" value="SUBMIT">

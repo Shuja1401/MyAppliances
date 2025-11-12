@@ -5,10 +5,19 @@
 </head>
 
 <body>
-  <h1>Welcome to <b>MyAppliances!</b></h1><br>
-  <p><i>A one-stop shop for all the assets in your house.</i></p><br><hr>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+          <li style="color: blue;">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+  <h1>Welcome to <b>MyAppliances!</b></h1>
+  <p><i>A one-stop shop for all the assets in your house.</i></p><hr>
   {% if nav_message %}
-    <p>{{nav_message}}</p>
+    <p style="color:red;">{{nav_message}}</p>
   {% endif %}
   <p>Enter the details of the devices you want to track.</p>
     <form method="POST" action='/add_device'>
@@ -45,7 +54,7 @@
       <option value="Yogurt Maker">Yogurt Maker</option>
       </select>
       <p>Enter the name of the manufacturer:<input type="text" name="manufacturer_name" required></p>
-      <p>Enter purchase date<input type="text" name="purchase_date" required></p>
+      <p>Enter purchase date<input type="date" name="purchase_date" required></p>
       <br><hr>
       
       <h2>Warranty details.</h2>
@@ -76,11 +85,10 @@
       <br><hr>
     <h2>Details of service centre</h2>
       <p>Name of service centre (if available):</p> <input type="text" name="service_centre_name">
-      <p>Address:</p> <input type="text" name="service_centre_address" required>
+      <p>Address:</p> <input type="text" name="service_centre_address">
       <p>Contact number:</p><input type="text" name="service_centre_number">
       <input type="submit" value="Submit">
-      <p><a href="{{url_for('add_device')}}">Add device</a></p>
-      <p><a href="{{url_for('navigation')}}">Main Menu</a></p>
+      <p><a href="{{url_for('navigation')}}">Home</a></p>
       <p><a href="{{url_for('exit_user')}}">Logout</a></p>
     </form>
 </body>

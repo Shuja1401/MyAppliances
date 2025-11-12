@@ -20,7 +20,7 @@
 
   <form method="POST" action="/onboarding">
     <p>User name: <input type="text" name="username" required></p>
-    <p>Password: <input type="text" name="password" required></p>
+    <p>Password: <input type="password" name="password" required></p>
     <p>Mobile number: <input type="text" name="contact_number" required></p>
     <p>First name: <input type="text" name="first_name" required></p>
     <p>Last name: <input type="text" name="last_name" required></p>
@@ -73,6 +73,7 @@
 
     <br><br>
     <button type="submit">Submit</button>
+    <p><a href="{{ url_for('main_menu') }}">Home</a></p>
   </form>
 </body>
 </html>

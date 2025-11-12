@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Service History</title>
+</head>
+<body>
+
+  <h3>Service History</h3>
+
+  <table border="1">
+    <tr>
+      <th>Serviced On</th>
+      <th>Amount Spent</th>
+      <th>Name of Part Replaced</th>
+      <th>Service Warranty?</th>
+      <th>Service Warranty (Months)</th>
+      <th>Part Warranty?</th>
+      <th>Part Warranty (Months)</th>
+      <th>Additional Remark</th>
+    </tr>
+
+    {% for s in view_service_details_list %}
+    <tr>
+      <td>{{ s.serviced_on }}</td>
+      <td>{{ s.amount_spent }}</td>
+      <td>{{ s.name_part_replaced }}</td>
+      <td>{{ s.service_warranty_y_n }}</td>
+      <td>{{ s.service_warranty_in_months }}</td>
+      <td>{{ s.part_warranty_y_n }}</td>
+      <td>{{ s.part_warranty_in_months }}</td>
+      <td>{{ s.additional_remark }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <p><a href="{{url_for('navigation')}}">Main menu</a></p>
+  <p><a href="{{url_for('exit_user')}}">Logout</a></p>
+</body>
+</html>

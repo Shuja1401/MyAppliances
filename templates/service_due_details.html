@@ -7,9 +7,9 @@
   </head>
   <body>
     <h3>List of devices for which service is due:</h3>
-    {% for device in list_service_due}
+    {% for device in list_service_due %}
     <p>{{device}}</p>
-    {% endfor}
+    {% endfor %}
     <p><a href="{{url_for('navigation')}}">Main Menu</a></p>
     <p><a href="{{url_for('exit_user')}}">Logout</a></p>
   </body>
