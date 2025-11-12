@@ -16,8 +16,9 @@ In a normal Indian household, there are at least a dozen of gadgets, appliances,
 MyAppliances app helps you organize all your devices in one place. The lighweight app will help you track warranty status, and service schedule of your items. It will also help you record the details of the repair work, which you can later use to track the health of items in your house. It also maintains a database of service centres for your devices, helping you to reach out to the repair guy when required.
 
 ## Future versions will include 
-Ability to scan and read bill receipts and stickers to avoid manually entering the details of the device.
-A dashboard to show you monitor the health of your devices based.
+- Ability to scan and read bill receipts and stickers to avoid manually entering the details of the device.
+- A dashboard to show you monitor the health of your devices based.
+
 |  | |
 |------|-------|
 | **Project name**: | MyAppliances |
