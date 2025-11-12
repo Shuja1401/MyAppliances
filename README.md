@@ -23,7 +23,7 @@ A dashboard to show you monitor the health of your devices based.
 | **Project name**: | MyAppliances |
 | **Type**: | Web app (Flask + SQLite + Render) |
 | **Duration**:	| One month (solo project) |
-| **Goal**: To create a simple device and service management tool. |
+| **Goal**: | To create a simple device and service management tool. |
 | **Tech Stack**: | Python (Flask), SQLite, HTML, CSS, GitHub, Render |
 
 **Key Features**
