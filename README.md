@@ -19,11 +19,11 @@ MyAppliances app helps you organize all your devices in one place. The lighweigh
 Ability to scan and read bill receipts and stickers to avoid manually entering the details of the device.
 A dashboard to show you monitor the health of your devices based.
 
-**Project name**: MyAppliances
-**Type**: Web app (Flask + SQLite + Render)
-**Duration**:	One month (solo project)
-**Goal**: To create a simple device and service management tool.
-**Tech Stack**: Python (Flask), SQLite, HTML, CSS, GitHub, Render
+| **Project name**: | MyAppliances |
+| **Type**: | Web app (Flask + SQLite + Render) |
+| **Duration**:	| One month (solo project) |
+| **Goal**: To create a simple device and service management tool. |
+| **Tech Stack**: | Python (Flask), SQLite, HTML, CSS, GitHub, Render |
 
 **Key Features**
 ⦁	Personal user accounts
