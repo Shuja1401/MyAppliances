@@ -4,7 +4,7 @@ _A one-stop shop for all the items in your house!_
 ## Problem
 *The kitchen chimney in your house needs cleaning. You make a call to the service centre, and the guy informs you that there are a couple of parts requiring replacement. You dutifully pay for those parts and things are back to normal.* 
 
-*Six months down the line, the chimney starts making a "hissing" noise. You again make a call to the service centre, and the guy once again informs you that the parts needs replacement. It occurs to you that something similar happened six months ago. Now, since there is no record/memory of the service performed on your chimney six months ago, the only option is to trust the words of the repairman! 
+*Six months down the line, the chimney starts making a "hissing" noise. You again make a call to the service centre, and the guy once again informs you that the parts needs replacement. It occurs to you that something similar happened six months ago. Now, since there is no record/memory of the service performed on your chimney six months ago, the only option is to trust the words of the repairman!* 
 
 *You comply. Make a note of the service in a decrepit diary. And move on.*
 
