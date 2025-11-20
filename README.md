@@ -18,7 +18,7 @@ MyAppliances app helps you organize all your devices in one place. The lighweigh
 #### 1. Service centre details
 The app taps into a database containing the containing the contact details of service centres. These details are either manually fed by the user at the time of account creation, or updated by the MyAppliances team. In case, of a device breakdown, the user is shown the details of the service centre of the specific device.
 
-#### 2. Check service and warranty status:
+#### 2. Check service and warranty status
 A user can check the warranty expiration, last service, next service due dates of all appliances registered in their account.
 
 #### 3. Service details
