@@ -15,6 +15,18 @@ In a normal Indian household, there are at least a dozen of gadgets, appliances,
 ## Solution:
 MyAppliances app helps you organize all your devices in one place. The lighweight app will help you track warranty status, and service schedule of your items. It will also help you record the details of the repair work, which you can later use to track the health of items in your house. It also maintains a database of service centres for your devices, helping you to reach out to the repair guy when required.
 
+1. # Service centre details
+The app taps into a database containing the containing the contact details of service centres. These details are either manually fed by the user at the time of account creation, or updated by the MyAppliances team. In case, of a device breakdown, the user is shown the details of the service centre of the specific device.
+
+2. # Check service and warranty status:
+A user can check the warranty expiration, last service, next service due dates of all appliances registered in their account.
+
+3. # Service details
+A user can enter the service details -- labour performed, parts replaced, cost incurred -- of their appliances. The user can also view and delete existing service records.
+
+4. # Device details
+A user can add, view, delete the details of appliances. 
+
 ## Future versions will include 
 - Ability to scan and read bill receipts and stickers to avoid manually entry.
 - A dashboard to show you monitor the health of your devices based.
